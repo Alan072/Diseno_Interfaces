@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\Controlador_Paginas;
 
 use Illuminate\Support\Facades\Route;
 
@@ -17,5 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route:: post('/jefe_ticket',[ControladorPaginas::class,'finicio']) ->name('Jticket');
+Route::get('/jefe_ticket',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
 
