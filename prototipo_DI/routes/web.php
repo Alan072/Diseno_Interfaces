@@ -29,3 +29,11 @@ Route::get('/jefe_departamento',[Controlador_Paginas::class,'fdep']) ->name('Jde
 Route::get('/jefe_departamento_read',[Controlador_Paginas::class,'fdep_read']) ->name('Jdep_read');
 Route::get('/jefe_departamento_editar',[Controlador_Paginas::class,'fdep_editar']) ->name('Jdep_editar');
 
+//Rutas de las vistas de ticket
+Route::get('/reporte_ticket',[Controlador_Paginas::class,'frepoticket']) ->name('rticket');
+Route::get('/vista_ticket',[Controlador_Paginas::class,'fvistaticket']) ->name('vticket');
+
+//Rutas de los reportes
+Route::get('/departamentos',[Controlador_Paginas::class,'fdepartamento']) ->name('ddepartamento');
+Route::get('/vistadepa',[Controlador_Paginas::class,'fvistadepa']) ->name('vdepa');
+Route::get('/reportesdepa',[Controlador_Paginas::class,'freportedepa']) ->name('rdepartamento');
