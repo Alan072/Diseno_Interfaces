@@ -27,16 +27,16 @@
       <div class="flex items-center">
           <ul class="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
               <li>
-                  <a href="#" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Usuarios</a>
+                  <a href="/jefe_ticket" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Usuarios</a>
               </li>
               <li>
-                  <a href="#" class="text-gray-900 dark:text-white hover:underline">Tickets</a>
+                  <a href="/reporte_ticket" class="text-gray-900 dark:text-white hover:underline">Tickets</a>
               </li>
               <li>
-                  <a href="#" class="text-gray-900 dark:text-white hover:underline">Departamentos</a>
+                  <a href="/jefe_departamento" class="text-gray-900 dark:text-white hover:underline">Departamentos</a>
               </li>
               <li>
-                  <a href="#" class="text-gray-900 dark:text-white hover:underline">Reportes</a>
+                  <a href="/departamentos" class="text-gray-900 dark:text-white hover:underline">Reportes</a>
               </li>
           </ul>
       </div>

@@ -1,5 +1,17 @@
 @extends ('plantilla_jefe')
 @section ('contenido')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/ruta/a/bootbox.min.js"></script>
+
+</head>
+<body>
+    
 
 <form>
     <div class="grid gap-6 mb-6 md:grid-cols-2">
@@ -80,7 +92,22 @@
                     <form action="" method="POST" class="formEliminar">
                         @csrf
                         @method('DELETE')
-                        <button type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Eliminar</button>
+                        <button type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900" onclick="bootbox.confirm({
+                            message: 'Esta seguro de que desea eliminar el elemento?',
+                            buttons: {
+                            confirm: {
+                            label: 'Sí',
+                            className: 'btn-success'
+                            },
+                            cancel: {
+                            label: 'No',
+                            className: 'btn-danger'
+                            }
+                            },
+                            callback: function (result) {
+                            console.log('This was logged in the callback: ' + result);
+                            }
+                            });">Eliminar</button>
                     </form>
                 </div>
             </td>
@@ -90,5 +117,6 @@
     </tbody>
 </table>   
 
-
+</body>
+</html>
 @stop
