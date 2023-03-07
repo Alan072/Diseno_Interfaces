@@ -1,8 +1,5 @@
 @extends ('plantilla_jefe')
 @section ('contenido')
-
-<!DOCTYPE html>
-<html>
   <head>
     <style>
       .container {
@@ -50,6 +47,4 @@
     </div>
     
   </body>
-</html>
-
 @stop
