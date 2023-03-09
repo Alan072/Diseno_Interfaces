@@ -14,11 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/jefe_ticket',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
+
+Route::get('/',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
 
 Route::get('/jefe_ticket_read',[Controlador_Paginas::class,'fread']) ->name('Jread');
 Route::get('/jefe_ticket_editar',[Controlador_Paginas::class,'feditar']) ->name('Jeditar');
