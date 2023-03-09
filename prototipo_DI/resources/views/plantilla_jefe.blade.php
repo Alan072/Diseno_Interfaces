@@ -17,7 +17,7 @@
           <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Macuin Dashboards</span>
       </a>
       <div class="flex items-center">
-          <a href="tel:5541251234" class="mr-6 text-sm font-medium text-gray-500 dark:text-white hover:underline">IG: @alan_lugardo</a>
+          <a href="https://www.youtube.com/watch?v=Yu9X0OZWRqI&list=RDjRscnYTQieY&index=27&ab_channel=RichVagos" class="mr-6 text-sm font-medium text-gray-500 dark:text-white hover:underline">IG: @alan_lugardo</a>
           <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Salir</a>
       </div>
   </div>

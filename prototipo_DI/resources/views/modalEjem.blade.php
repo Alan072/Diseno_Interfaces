@@ -1,3 +1,4 @@
+<!--Este es el modal para la verificacion de el eliminar-->
 <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
     <div class="relative w-full h-full max-w-md md:h-auto">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -104,4 +105,26 @@
           </div>
       </div>
   </div> 
-  
+<!--Este es para el tooltip de el boton de documento-->
+<div id="tooltip-document" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+    Ver reportes completos
+    <div class="tooltip-arrow" data-popper-arrow></div>
+</div>
+
+<!--Este es para el tootip de actualizar-->
+<div id="tooltip-update" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+    Actualizar reportes
+    <div class="tooltip-arrow" data-popper-arrow></div>
+</div>
+
+<!--Este es para el tootip de eliminar-->
+<div id="tooltip-delete" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+    Eliminar reportes
+    <div class="tooltip-arrow" data-popper-arrow></div>
+</div>
+
+<!--Este es para el tootip de eliminar-->
+<div id="tooltip-assign" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+    Asignar reportes
+    <div class="tooltip-arrow" data-popper-arrow></div>
+</div>
