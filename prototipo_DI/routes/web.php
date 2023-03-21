@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Controlador_Paginas;
+use App\Http\Controllers\controlador_empleado;
 
 use Illuminate\Support\Facades\Route;
 
@@ -16,10 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
+Route::get('/insertar',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
 
 Route::get('/jefe_ticket_read',[Controlador_Paginas::class,'fread']) ->name('Jread');
 Route::get('/jefe_ticket_editar',[Controlador_Paginas::class,'feditar']) ->name('Jeditar');
+//Funcion de Create empleado
+Route::post('/insertar/create',[controlador_empleado::class,'store'])->name('insertar.create');
 
 
 
