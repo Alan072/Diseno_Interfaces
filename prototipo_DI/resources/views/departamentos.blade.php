@@ -35,28 +35,28 @@
 	<div class="columnas" style="display: flex; justify-content: space-between;">
 		<div class="columna">
 			<label>Departamento</label><br>
-			<input type="text">
+			<input type="text" required>
             <br>
             <label>Fecha</label><br>
-            <input type="text">
+            <input type="text" required>
 		</div>
 		<div class="columna">
 			<label>No. Maquinas</label><br>
-			<input type="text">
+			<input type="text" required>
             <br>
             <label>No. Empleados</label><br>
-            <input type="text">
+            <input type="text" required>
 		</div>
 		<div class="columna">
 			<label>Maquinas disponibles</label><br>
-			<input type="text">
+			<input type="text" required>
             <br>
             <label>Extra</label><br>
-            <input type="text">
+            <input type="text" required>
 		</div>
 	</div>
     <center>
-        <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Asignar ticket</button>
+        <button type="button" type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Asignar ticket</button>
         <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Regresar</button>
     </center>
 <!--Esta sera la tabla en donde se mostrará la informacion-->
