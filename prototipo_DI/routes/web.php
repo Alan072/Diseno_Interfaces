@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Controlador_Paginas;
 use App\Http\Controllers\controlador_empleado;
+use App\Http\Controllers\controlador_departamento;
 
 use Illuminate\Support\Facades\Route;
 
@@ -33,10 +34,11 @@ Route::get('/jefe_ticket_editar',[Controlador_Paginas::class,'feditar']) ->name(
 Route::post('/insertar/create',[controlador_empleado::class,'store'])->name('insertar.create');
 
 
-
+//Rutas de las vistas de departamento
 Route::get('/jefe_departamento',[Controlador_Paginas::class,'fdep']) ->name('Jdep');
 Route::get('/jefe_departamento_read',[Controlador_Paginas::class,'fdep_read']) ->name('Jdep_read');
 Route::get('/jefe_departamento_editar',[Controlador_Paginas::class,'fdep_editar']) ->name('Jdep_editar');
+Route::post('/jefe_departamento/create',[controlador_departamento::class,'store']) ->name('insertar_dep');
 
 //Rutas de las vistas de ticket
 Route::get('/reporte_ticket',[Controlador_Paginas::class,'frepoticket']) ->name('rticket');
