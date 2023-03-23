@@ -7,12 +7,17 @@ use Illuminate\Http\Request;
 
 class controlador_empleado extends Controller
 {
+    function ftbu(){
+        return view('tb_usuarios');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
+        $empleado = DB::table('empleado')->get();
+        return view('tb_usuarios',compact('empleado'));
     }
 
     /**
@@ -50,7 +55,10 @@ class controlador_empleado extends Controller
     public function show(string $id)
     {
         //
+        $empleado = DB::select('SELECT * FROM empleado WHERE id = ?', [$id])[0]; // busca al empleado con el id proporcionado
+        return view('jefe_ticket_read', compact('empleado')); // pasa los detalles del empleado a la vista
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -58,6 +66,8 @@ class controlador_empleado extends Controller
     public function edit(string $id)
     {
         //
+        $empleadoid = DB::table('empleado')->where('id',$id)->first();
+        return view ('jefe_ticket_read', compact('empleadoid'));
     }
 
     /**
@@ -74,5 +84,7 @@ class controlador_empleado extends Controller
     public function destroy(string $id)
     {
         //
+        DB::table('empleado')->where('id',$id)->delete();
+        return redirect('/tb_usuarios')->with('mensaje',"Recuerdo borrado");
     }
 }

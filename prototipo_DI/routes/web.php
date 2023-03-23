@@ -20,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
 #Esta es la ruta en donde se mostrara la tabla de la vista usuarios
-Route::get('/tb_usuarios',[Controlador_Paginas::class,'ftbu']) ->name('Jtbu');
+Route::get('/tb_usuarios',[controlador_empleado::class, 'index'])->name('usuarioindex');
+Route::delete('/tb_usuarios/{id}',[controlador_empleado::class, 'destroy'])->name('usuariodestroy');
+Route::get('/tb_usuarios/{id}', [controlador_empleado::class, 'show'])->name('usuarioshow');
+
 
 #Esta es la ruta en donde se mostrara la tabla de la vista departamentos
 Route::get('/tb_departamento',[Controlador_Paginas::class,'ftbdepa']) ->name('Jtbdepa');
