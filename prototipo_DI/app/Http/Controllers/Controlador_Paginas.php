@@ -51,4 +51,16 @@ class Controlador_Paginas extends Controller
     function freportedepa(){
         return view('reportesdepa');
     }
+
+    function ftbu(){
+        return view('tb_usuarios');
+    }
+
+    function ftbdepa(){
+        return view('tb_departamento');
+    }
+
+    function ftbreport(){
+        return view('tb_reportes');
+    }
 }

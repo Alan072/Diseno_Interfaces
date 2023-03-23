@@ -17,7 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/insertar',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
+Route::get('/',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
+#Esta es la ruta en donde se mostrara la tabla de la vista usuarios
+Route::get('/tb_usuarios',[Controlador_Paginas::class,'ftbu']) ->name('Jtbu');
+
+#Esta es la ruta en donde se mostrara la tabla de la vista departamentos
+Route::get('/tb_departamento',[Controlador_Paginas::class,'ftbdepa']) ->name('Jtbdepa');
+
+#Esta es la ruta en donde se mostrara la tabla de la vista reportes
+Route::get('/tb_reportes',[Controlador_Paginas::class,'ftbreport']) ->name('Jtbreport');
 
 Route::get('/jefe_ticket_read',[Controlador_Paginas::class,'fread']) ->name('Jread');
 Route::get('/jefe_ticket_editar',[Controlador_Paginas::class,'feditar']) ->name('Jeditar');
