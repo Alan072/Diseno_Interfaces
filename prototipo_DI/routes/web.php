@@ -23,7 +23,9 @@ Route::get('/',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
 Route::get('/tb_usuarios',[controlador_empleado::class, 'index'])->name('usuarioindex');
 Route::delete('/tb_usuarios/{id}',[controlador_empleado::class, 'destroy'])->name('usuariodestroy');
 Route::get('/tb_usuarios/{id}', [controlador_empleado::class, 'show'])->name('usuarioshow');
-
+Route::put('/tb_usuarios/{id}',[controlador_empleado::class,'update'])->name('usuarioupdate');
+Route::get('/tb_usuarios/{id}/edit',[controlador_empleado::class,'edit'])->name('usuarioedit');
+Route::post('/insertar/create',[controlador_empleado::class,'store'])->name('insertar.create');
 
 #Esta es la ruta en donde se mostrara la tabla de la vista departamentos
 Route::get('/tb_departamento',[Controlador_Paginas::class,'ftbdepa']) ->name('Jtbdepa');
@@ -34,7 +36,6 @@ Route::get('/tb_reportes',[Controlador_Paginas::class,'ftbreport']) ->name('Jtbr
 Route::get('/jefe_ticket_read',[Controlador_Paginas::class,'fread']) ->name('Jread');
 Route::get('/jefe_ticket_editar',[Controlador_Paginas::class,'feditar']) ->name('Jeditar');
 //Funcion de Create empleado
-Route::post('/insertar/create',[controlador_empleado::class,'store'])->name('insertar.create');
 
 
 //Rutas de las vistas de departamento

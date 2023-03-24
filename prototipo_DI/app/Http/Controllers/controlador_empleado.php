@@ -64,17 +64,28 @@ class controlador_empleado extends Controller
      */
     public function edit(string $id)
     {
-        //
-        $empleadoid = DB::table('empleado')->where('id',$id)->first();
-        return view ('jefe_ticket_read', compact('empleadoid'));
+        $empleado = DB::table('empleado')->where('id', $id)->first();
+        return view ('jefe_ticket_editar', ['empleado' => $empleado]);
     }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $req, string $id)
     {
         //
+
+        DB::table('empleado')->where('id', $id)->update([
+        "nombre"=>$req->input('nombre'),
+        "apellido_paterno"=>$req->input('apellido_paterno'),
+        "apellido_materno"=>$req->input('apellido_materno'),
+        "departamento"=>$req->input('departamento'),
+        "puesto"=>$req->input('puesto'),
+        "email"=>$req->input('email'),
+        "updated_at"=>Carbon::now(),
+    ]);
+    return redirect('/tb_usuarios')->with('mensaje','Tu recuerdo se ha actualizado');
     }
 
     /**
