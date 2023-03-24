@@ -54,9 +54,8 @@ class controlador_empleado extends Controller
      */
     public function show(string $id)
     {
-        //
-        $empleado = DB::select('SELECT * FROM empleado WHERE id = ?', [$id])[0]; // busca al empleado con el id proporcionado
-        return view('jefe_ticket_read', compact('empleado')); // pasa los detalles del empleado a la vista
+        $empleado = DB::table('empleado')->where('id',$id)->first();
+        return view('jefe_ticket_read', compact('empleado'));
     }
     
 
