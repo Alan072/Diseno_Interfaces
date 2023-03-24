@@ -2,68 +2,43 @@
 @section ('contenido')
 @include('modalEjem')
 
-
-	<style type="text/css">
-		.columnas {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-		}
-
-		.columna {
-			flex-basis: calc(33.33%);
-			margin-bottom: 20px;
-			padding: 10px;
-			background-color: #f2f2f2;
-			box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-		}
-	</style>
-
-<body>
 <div class="bg-white rounded-lg shadow p-6">
-    <div class="flex justify-center">
-        <div class="relative">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+    <form>
+        <div class="grid gap-6 mb-6 md:grid-cols-2">
+            <div>
+                <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Departamento</label>
+                <input type="text" id="nombre" name="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Sistemas" required>
             </div>
-            <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <div>
+                <label for="numero_maquinas" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero de maquinas</label>
+                <input type="number" id="numero_maquinas" name="numero_maquinas" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="54" required>
+            </div>
+            <div>
+                <label for="maquinas_disponibles" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Maquinas Disponibles</label>
+                <input type="number" id="maquinas_disponibles" name="maquinas_disponibles" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="30" required>
+            </div> 
+			<div>
+                <label for="fecha" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha</label>
+                <input type="date" id="fecha" name="fecha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="30" required>
+            </div>  
+            <div>
+                <label for="numero_empleados" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero de empleados</label>
+                <input type="number" id="numero_empleados" name="numero_empleados" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="41" required>
+            </div>
+            <div>
+                <label for="extra" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Extra</label>
+                <input type="text" id="extra" name="extra" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentarios del departamento" required>
+            </div>
         </div>
-      </div>
-      <br>
-	<div class="columnas" style="display: flex; justify-content: space-between;">
-		<div class="columna">
-			<label>Departamento</label><br>
-			<input type="text" required>
-            <br>
-            <label>Fecha</label><br>
-            <input type="text" required>
-		</div>
-		<div class="columna">
-			<label>No. Maquinas</label><br>
-			<input type="text" required>
-            <br>
-            <label>No. Empleados</label><br>
-            <input type="text" required>
-		</div>
-		<div class="columna">
-			<label>Maquinas disponibles</label><br>
-			<input type="text" required>
-            <br>
-            <label>Extra</label><br>
-            <input type="text" required>
-		</div>
-	</div>
-    <center>
-        <button type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Submit</button>
-        <a class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" href="/tb_reportes">
-        Consultar Reportes
-        </a>
-    </center>
+        
+    
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+			<a class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" href="/tb_reportes">
+				Consultar Reportes
+			</a>
+							
+    </form>
 </div>
-
-
-</body>
-</html>
-
+<br>
 
 @stop

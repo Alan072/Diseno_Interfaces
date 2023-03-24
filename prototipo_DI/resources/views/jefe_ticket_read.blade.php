@@ -22,7 +22,7 @@
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Puesto: @isset($empleado->puesto){{$empleado->puesto}}@endisset</p>
         <div class="col-span-2">
             <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Apellido Paterno: @isset($empleado->apellido_paterno){{$empleado->apellido_paterno}}@endisset</p>
-            <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Apellido Materno: @isset($empleado->apellido_paterno){{$empleado->apellido_paterno}}@endisset</p>
+            <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Apellido Materno: @isset($empleado->apellido_materno){{$empleado->apellido_materno}}@endisset</p>
             <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Departamento: @isset($empleado->departamento){{$empleado->departamento}}@endisset</p>
             <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Email: @isset($empleado->email){{$empleado->email}}@endisset</p>            
         </div>
