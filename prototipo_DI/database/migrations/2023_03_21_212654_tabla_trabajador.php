@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('departamento');
             $table->string('puesto');
             $table->string('email')->unique();
-            $table->string('foto')->unique();
             $table->timestamps();
         });
     }
