@@ -40,31 +40,41 @@ class controlador_empleado extends Controller
             "nombre"=>$req->input('nombre'),
             "apellido_paterno"=>$req->input('apellido_paterno'),
             "apellido_materno"=>$req->input('apellido_materno'),
-            "departamento"=>$req->input('departamento'),
-            "puesto"=>$req->input('puesto'),
+            "departamento_id"=>$req->input('departamento'),
+            "puesto_id"=>$req->input('puesto'),
             "email"=>$req->input('email'),
             "created_at"=>Carbon::now(),
             "updated_at"=>Carbon::now(),
         ]);
-        return redirect('/insertar')->with('mensaje','Tu recuerdo se ha guardado en la BD');
+        return redirect('/')->with('mensaje','Tu recuerdo se ha guardado en la BD');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id_empleado)
     {
-        $empleado = DB::table('empleado')->where('id',$id)->first();
-        return view('jefe_ticket_read', compact('empleado'));
+        $empleado = DB::table('empleado')
+        ->join('departamento', 'empleado.departamento_id', '=', 'departamento.id_departamento')
+        ->join('puesto', 'empleado.puesto_id', '=', 'puesto.id_puesto')
+        ->select('empleado.*', 'departamento.nombre as departamento_nombre', 'puesto.nombre as puesto_nombre')
+        ->where('empleado.id_empleado', $id_empleado)
+        ->first();
+
+    if (!$empleado) {
+        abort(404);
+    }
+
+    return view('jefe_ticket_read', compact('empleado'));
     }
     
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id_empleado)
     {
-        $empleado = DB::table('empleado')->where('id', $id)->first();
+        $empleado = DB::table('empleado')->where('id_empleado', $id_empleado)->first();
         return view ('jefe_ticket_editar', ['empleado' => $empleado]);
     }
 
@@ -72,16 +82,16 @@ class controlador_empleado extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $req, string $id)
+    public function update(Request $req, string $id_empleado)
     {
         //
 
-        DB::table('empleado')->where('id', $id)->update([
+        DB::table('empleado')->where('id_empleado', $id_empleado)->update([
         "nombre"=>$req->input('nombre'),
         "apellido_paterno"=>$req->input('apellido_paterno'),
         "apellido_materno"=>$req->input('apellido_materno'),
-        "departamento"=>$req->input('departamento'),
-        "puesto"=>$req->input('puesto'),
+        "departamento_id"=>$req->input('departamento'),
+        "puesto_id"=>$req->input('puesto'),
         "email"=>$req->input('email'),
         "updated_at"=>Carbon::now(),
     ]);
@@ -91,10 +101,10 @@ class controlador_empleado extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id_empleado)
     {
         //
-        DB::table('empleado')->where('id',$id)->delete();
+        DB::table('empleado')->where('id_empleado',$id_empleado)->delete();
         return redirect('/tb_usuarios')->with('mensaje',"Recuerdo borrado");
     }
 }

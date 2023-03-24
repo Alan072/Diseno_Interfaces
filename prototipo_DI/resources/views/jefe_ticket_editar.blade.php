@@ -3,7 +3,7 @@
 @include('modalEjem')
 
 <div class="bg-white rounded-lg shadow p-6">
-  <form method="post" action="{{ route('usuarioupdate', $empleado->id) }}">
+  <form method="post" action="{{ route('usuarioupdate', $empleado->id_empleado) }}">
     @csrf
       {!! method_field('PUT')!!}
         <div class="grid gap-6 mb-6 md:grid-cols-2">
@@ -19,34 +19,87 @@
             <label for="apellido_materno" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido Materno</label>
             <input type="text" id="apellido_materno" name="apellido_materno" value="{{ $empleado->apellido_materno}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required>
           </div>  
+
+
           <div>
             <label for="departamento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Departamento</label>
-            <input type="text" id="departamento" name="departamento" value="{{ $empleado->departamento}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required>
+            <select id="departamento" name="departamento" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+              <option value="" disabled selected>Selecciona un departamento</option>
+              <?php
+                // Realizar la conexión a la base de datos
+                $conexion = mysqli_connect("localhost:3307", "root", "", "prototipo_di");
+          
+                // Verificar la conexión
+                if (!$conexion) {
+                  die("Error al conectar a la base de datos: " . mysqli_connect_error());
+                }
+          
+                // Realizar la consulta a la base de datos
+                $query = "SELECT * FROM departamento";
+                $resultado = mysqli_query($conexion, $query);
+          
+                // Verificar si la consulta devolvió resultados
+                if (mysqli_num_rows($resultado) > 0) {
+                  // Iterar sobre los resultados y crear los elementos de la lista desplegable
+                  while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo "<option value='" . $fila["id_departamento"] . "'>" . $fila["nombre"] . "</option>";
+                  }
+                } else {
+                  // Si la consulta no devolvió resultados, mostrar un mensaje de error
+                  echo "<option value=''>No se encontraron resultados</option>";
+                }
+          
+                // Cerrar la conexión a la base de datos
+                mysqli_close($conexion);
+              ?>
+            </select>
           </div>
-            <div>
-                <label for="puesto" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Puesto</label>
-                <input type="text" name="puesto" value="{{ $empleado->puesto}}" id="puesto" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required>
-            </div>
+          
+          <div>
+            <label for="puesto" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Puesto</label>
+            <select id="puesto" name="puesto" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+              <option value="" disabled selected>Selecciona un puesto</option>
+              <?php
+                // Realizar la conexión a la base de datos
+                $conexion = mysqli_connect("localhost:3307", "root", "", "prototipo_di");
+          
+                // Verificar la conexión
+                if (!$conexion) {
+                  die("Error al conectar a la base de datos: " . mysqli_connect_error());
+                }
+          
+                // Realizar la consulta a la base de datos
+                $query = "SELECT * FROM puesto";
+                $resultado = mysqli_query($conexion, $query);
+          
+                // Verificar si la consulta devolvió resultados
+                if (mysqli_num_rows($resultado) > 0) {
+                  // Iterar sobre los resultados y crear los elementos de la lista desplegable
+                  while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo "<option value='" . $fila["id_puesto"] . "'>" . $fila["nombre"] . "</option>";
+                  }
+                } else {
+                  // Si la consulta no devolvió resultados, mostrar un mensaje de error
+                  echo "<option value=''>No se encontraron resultados</option>";
+                }
+          
+                // Cerrar la conexión a la base de datos
+                mysqli_close($conexion);
+              ?>
+            </select>
+          </div>
+
+
             <div class="mb-6">
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
                 <input type="email" id="email" name="email" value="{{ $empleado->email}}"class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required>
             </div> 
-        </div>
-        
-    <div class="flex items-center justify-center w-full">
-        <label for="foto" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-            <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click para subir</span> foto de empleado</p>
-                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-            </div>
-            <input id="foto" type="file" class="hidden" />
-        </label>
-    </div> 
+          </div>
+
+       
     <br>
     <button type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Actualizar</button>
     </form>
-</div>
     
 <br>
 <style>

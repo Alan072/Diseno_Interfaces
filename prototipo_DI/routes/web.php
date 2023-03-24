@@ -21,10 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
 #Esta es la ruta en donde se mostrara la tabla de la vista usuarios
 Route::get('/tb_usuarios',[controlador_empleado::class, 'index'])->name('usuarioindex');
-Route::delete('/tb_usuarios/{id}',[controlador_empleado::class, 'destroy'])->name('usuariodestroy');
-Route::get('/tb_usuarios/{id}', [controlador_empleado::class, 'show'])->name('usuarioshow');
-Route::put('/tb_usuarios/{id}',[controlador_empleado::class,'update'])->name('usuarioupdate');
-Route::get('/tb_usuarios/{id}/edit',[controlador_empleado::class,'edit'])->name('usuarioedit');
+Route::delete('/tb_usuarios/{id_empleado}',[controlador_empleado::class, 'destroy'])->name('usuariodestroy');
+Route::get('/tb_usuarios/{id_empleado}', [controlador_empleado::class, 'show'])->name('usuarioshow');
+Route::put('/tb_usuarios/{id_empleado}',[controlador_empleado::class,'update'])->name('usuarioupdate');
+Route::get('/tb_usuarios/{id_empleado}/edit',[controlador_empleado::class,'edit'])->name('usuarioedit');
 Route::post('/insertar/create',[controlador_empleado::class,'store'])->name('insertar.create');
 
 #Esta es la ruta en donde se mostrara la tabla de la vista departamentos

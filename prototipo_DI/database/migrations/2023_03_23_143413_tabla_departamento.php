@@ -11,16 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        ////
-        Schema::create('departamento', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nombre');
-            $table->integer('numero_maquinas');
-            $table->integer('maquinas_disponibles');
-            $table->string('numero_empleados');
-            $table->string('extra');
-            $table->timestamps();
-        });
+       
     }
 
     /**
