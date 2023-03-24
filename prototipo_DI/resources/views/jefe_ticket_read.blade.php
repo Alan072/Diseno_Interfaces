@@ -13,19 +13,18 @@
 <body>
 <center>
     <br>
-    @foreach($empleado as $item)
+   
 
 <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
     <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://imgs.search.brave.com/w6uK7n0r2oX1WFy02QkzSa-KEV0hK9LHDNJhM7gTkPI/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4x/Sk5Yc2wtRUd2R2tP/M3Y2NXdjOVhRSGFI/YSZwaWQ9QXBp" alt="">
     <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $item->nombre }}</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Puesto: Gerente</p>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">@isset($empleado->nombre){{$empleado->nombre}}@endisset</h5>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Puesto: @isset($empleado->puesto){{$empleado->puesto}}@endisset</p>
         <div class="col-span-2">
-            <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Correo: {{ $item->correo }}</p>
-            <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Departamento: {{ $item->departamento }}</p>
-            <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Numero Telefonico: 4422479264</p>
-            <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Departamento: Sistemas</p>
-            
+            <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Apellido Paterno: @isset($empleado->apellido_paterno){{$empleado->apellido_paterno}}@endisset</p>
+            <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Apellido Materno: @isset($empleado->apellido_paterno){{$empleado->apellido_paterno}}@endisset</p>
+            <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Departamento: @isset($empleado->departamento){{$empleado->departamento}}@endisset</p>
+            <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Email: @isset($empleado->email){{$empleado->email}}@endisset</p>            
         </div>
         
     </div>
@@ -39,5 +38,4 @@
 
 
 
-@endforeach
 @stop
