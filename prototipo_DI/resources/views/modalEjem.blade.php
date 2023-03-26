@@ -90,12 +90,37 @@
               <div class="px-6 py-6 lg:px-8">
                   <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Asignar Ticket</h3>
                   <form class="space-y-6" action="#">
-                    <select name="color" id="color" style="text-align: left;" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"  required >
-                        <option   style="background-color: #374151;" selected disabled>Asignar Auxiliar</option>
-                        <option value="r" style="background-color: #374151;">Alejandro Martinez</option>
-                        <option value="a" style="background-color: #374151;">Alan Pineda</option>
-                        <option value="v" style="background-color: #374151;">Esteban Lopez</option>
-                      </select>
+                    <label for="departamento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Departamento</label>
+            <select id="aux" name="aux" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+              <option value="" disabled selected>Selecciona un Auxiliar</option>
+              <?php
+                // Realizar la conexión a la base de datos
+                $conexion = mysqli_connect("localhost:3307", "root", "", "prototipo_di");
+          
+                // Verificar la conexión
+                if (!$conexion) {
+                  die("Error al conectar a la base de datos: " . mysqli_connect_error());
+                }
+          
+                // Realizar la consulta a la base de datos
+                $query = "SELECT * FROM empleado where puesto_id = 2";
+                $resultado = mysqli_query($conexion, $query);
+          
+                // Verificar si la consulta devolvió resultados
+                if (mysqli_num_rows($resultado) > 0) {
+                  // Iterar sobre los resultados y crear los elementos de la lista desplegable
+                  while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo "<option value='" . $fila["id_empleado"] . "'>" . $fila["nombre"] . " " . $fila["apellido_paterno"] . " " . $fila["apellido_materno"] ."</option>";
+                  }
+                } else {
+                  // Si la consulta no devolvió resultados, mostrar un mensaje de error
+                  echo "<option value=''>No se encontraron resultados</option>";
+                }
+          
+                // Cerrar la conexión a la base de datos
+                mysqli_close($conexion);
+              ?>
+            </select>
                       <div>
                             <label for="comentarios" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comentarios</label>
                             <textarea style="resize:none;" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" id="message-text"  required></textarea>
