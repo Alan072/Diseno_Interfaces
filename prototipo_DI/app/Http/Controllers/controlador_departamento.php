@@ -92,8 +92,10 @@ class controlador_departamento extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id_departamento)
     {
         //
+        DB::table('departamento')->where('id_departamento',$id_departamento)->delete();
+        return redirect('/tb_departamento')->with('mensaje',"Recuerdo borrado");
     }
 }

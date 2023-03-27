@@ -57,14 +57,14 @@ class controlador_empleado extends Controller
         $empleado = DB::table('empleado')
         ->join('departamento', 'empleado.departamento_id', '=', 'departamento.id_departamento')
         ->join('puesto', 'empleado.puesto_id', '=', 'puesto.id_puesto')
-        ->select('empleado.*', 'departamento.nombre as departamento_nombre', 'puesto.nombre as puesto_nombre')
+        ->select('empleado.*', 'departamento.nombre as departamento_nombre', 
+        'puesto.nombre as puesto_nombre')
         ->where('empleado.id_empleado', $id_empleado)
         ->first();
 
     if (!$empleado) {
         abort(404);
     }
-
     return view('jefe_ticket_read', compact('empleado'));
     }
     

@@ -1,6 +1,7 @@
 @extends('plantilla_jefe')
 @section('contenido')
 @include('modalEjem')
+
 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Registro de Usuarios</span>
 <!--Esto es la barra de busqueda y la paginacion-->
 
@@ -35,7 +36,7 @@
                     APELLIDO MATERNO
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    PUESTO
+                    EMAIL
                 </th>
                 <th scope="col" class="px-6 py-3">
                     ACCIONES
@@ -44,6 +45,7 @@
         </thead>
         <tbody>
             @foreach($empleado as $item)
+            
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$item->id_empleado}} </th>
@@ -57,11 +59,9 @@
                     {{$item->apellido_materno}}                
                 </td>
                 <td class="px-6 py-4">
-                    {{$item->puesto_id}}                
+                    {{$item->email}} 
                 </td>
 
-
-                
                 <td class="flex items-center">
                     <!--Esta es la linea del boton del documento-->
                     <!----><a href="{{route('usuarioshow', ['id_empleado'=>$item->id_empleado])}}" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-70">

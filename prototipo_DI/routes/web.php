@@ -45,6 +45,7 @@ Route::post('/jefe_departamento/create',[controlador_departamento::class,'store'
 Route::get('/tb_departamento/{id_departamento}',[controlador_departamento::class, 'show'])->name('depshow');
 Route::get('/tb_departamento/{id_departamento}/edit',[controlador_departamento::class,'edit'])->name('depedit');
 Route::put('/tb_departamento/{id_departamento}',[controlador_departamento::class,'update'])->name('depupdate');
+Route::delete('/tb_departamento/{id_departamento}',[controlador_departamento::class, 'destroy'])->name('depdestroy');
 
 
 //Rutas de las vistas de ticket

@@ -15,12 +15,12 @@
     <br>
     <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <div class="flex flex-col justify-between p-4 leading-normal">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Sistemas Computacionales</h5>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$dep->nombre}} </h5>
             <div class="col-span-2">
-                <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Maquinas Disponibles: 54</p>
-                <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Maquinas No Disponibles: 15</p>
-                <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Total empleados: 60</p>
-                <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Extra: Sin comentarios</p>
+                <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Total de Maquinas: {{$dep->numero_maquinas}}</p>
+                <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Maquinas Disponibles: {{$dep->maquinas_disponibles}}</p>
+                <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Total empleados: {{$dep->numero_empleados}} </p>
+                <p class="mb-3 font-light text-gray-500 dark:text-gray-400">Extra: {{$dep->extra}}</p>
 
             </div>
         </div>
