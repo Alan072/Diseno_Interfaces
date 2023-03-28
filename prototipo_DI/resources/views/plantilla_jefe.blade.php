@@ -1,3 +1,4 @@
+@include('dropdown')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +17,13 @@
           <img src="https://cdn-icons-png.flaticon.com/512/2381/2381663.png" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
           <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Macuin Dashboards</span>
       </a>
+      <!--Este sera el boton de el login-->
       <div class="flex items-center">
-          <a href="https://www.youtube.com/watch?v=Yu9X0OZWRqI&list=RDjRscnYTQieY&index=27&ab_channel=RichVagos" class="mr-6 text-sm font-medium text-gray-500 dark:text-white hover:underline">IG: @alan_lugardo</a>
-          <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Salir</a>
+          <button data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start">
+            <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+            </div>
+          </button>
       </div>
   </div>
 </nav>
