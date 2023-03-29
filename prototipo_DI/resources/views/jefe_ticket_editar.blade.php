@@ -4,6 +4,7 @@
 
 <div class="bg-white rounded-lg shadow p-6">
   <form method="post" action="{{ route('usuarioupdate', $empleado->id_empleado) }}">
+    <script src="actualizar.js"></script>
     @csrf
       {!! method_field('PUT')!!}
         <div class="grid gap-6 mb-6 md:grid-cols-2">
@@ -27,7 +28,7 @@
               <option value="" disabled selected>Selecciona un departamento</option>
               <?php
                 // Realizar la conexión a la base de datos
-                $conexion = mysqli_connect("localhost:3307", "root", "", "prototipo_di");
+                $conexion = mysqli_connect("localhost:3306", "root", "", "prototipo_di");
           
                 // Verificar la conexión
                 if (!$conexion) {
@@ -61,7 +62,7 @@
               <option value="" disabled selected>Selecciona un puesto</option>
               <?php
                 // Realizar la conexión a la base de datos
-                $conexion = mysqli_connect("localhost:3307", "root", "", "prototipo_di");
+                $conexion = mysqli_connect("localhost:3306", "root", "", "prototipo_di");
           
                 // Verificar la conexión
                 if (!$conexion) {
@@ -117,7 +118,21 @@
             }
         </script>
     <br>
-    <button type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Actualizar</button>
+    <script>
+      var contador = 0;
+    
+      function mostrarAlerta() {
+        contador++;
+    
+        if (contador == 2) {
+          alert("Datos actualizados exitosamente");
+          contador = 0;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="mostrarAlerta()" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Actualizar</button>
     </form>
     
 <br>

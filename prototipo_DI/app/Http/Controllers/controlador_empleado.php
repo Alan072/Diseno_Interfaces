@@ -47,7 +47,7 @@ class controlador_empleado extends Controller
             "created_at"=>Carbon::now(),
             "updated_at"=>Carbon::now(),
         ]);
-        return redirect('/')->with('mensaje','Tu recuerdo se ha guardado en la BD');
+        return redirect('/jefe_ticket')->with('mensaje','Tu recuerdo se ha guardado en la BD');
     }
 
     /**

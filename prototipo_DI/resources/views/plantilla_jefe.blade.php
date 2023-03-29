@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>MC</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"  rel="stylesheet" />
+  <script src="actualizar.js"></script>
 
 </head>
 <body>
@@ -32,7 +33,7 @@
       <div class="flex items-center">
           <ul class="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
               <li>
-                  <a href="/" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Usuarios</a>
+                  <a href="/jefe_ticket" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Usuarios</a>
               </li>
               <li>
                   <a href="/reporte_ticket" class="text-gray-900 dark:text-white hover:underline">Tickets</a>
