@@ -60,4 +60,27 @@ class Controlador_Paginas extends Controller
     function ftbreport(){
         return view('tb_reportes');
     }
+
+    function fprofile(){
+        return view('perfil');
+    }
+
+    //Vistas auxiliar
+    function fauxt(){
+        return view('ticket_auxiliar');
+    }
+
+    function fauxbus(){
+        return view('busqueda_auxiliar');
+    }
+
+    //Vistas cliente
+    function fclientticket(){
+        return view('clientticket');
+    }
+
+    //Vistas cliente
+    function ftabcliente(){
+        return view('tabcliente');
+    }
 }

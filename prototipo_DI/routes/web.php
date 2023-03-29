@@ -56,3 +56,14 @@ Route::get('/vista_ticket',[Controlador_Paginas::class,'fvistaticket']) ->name('
 Route::get('/departamentos',[Controlador_Paginas::class,'fdepartamento']) ->name('ddepartamento');
 Route::get('/vistadepa',[Controlador_Paginas::class,'fvistadepa']) ->name('vdepa');
 Route::get('/reportesdepa',[Controlador_Paginas::class,'freportedepa']) ->name('rdepartamento');
+
+//Vista del perfil
+Route::get('/perfil',[Controlador_Paginas::class,'fprofile']) ->name('Jprofile');
+
+//Vistas de auxiliar
+Route::get('/ticket_auxiliar',[Controlador_Paginas::class,'fauxt']) ->name('Jauxt');
+Route::get('/busqueda_auxiliar',[Controlador_Paginas::class,'fauxbus']) ->name('auxbus');
+
+//Vistas de cliente
+Route::get('/clientticket',[Controlador_Paginas::class,'fclientticket']) ->name('Jclientticket');
+Route::get('/tabcliente',[Controlador_Paginas::class,'ftabcliente']) ->name('Jtabcliente');
