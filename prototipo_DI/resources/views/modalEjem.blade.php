@@ -95,7 +95,7 @@
               <option value="" disabled selected>Selecciona un Auxiliar</option>
               <?php
                 // Realizar la conexión a la base de datos
-                $conexion = mysqli_connect("localhost:3307", "root", "", "prototipo_di");
+                $conexion = mysqli_connect("localhost:3306", "root", "", "prototipo_di");
           
                 // Verificar la conexión
                 if (!$conexion) {
