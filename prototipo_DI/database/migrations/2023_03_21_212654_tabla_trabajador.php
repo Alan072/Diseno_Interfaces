@@ -33,6 +33,7 @@ return new class extends Migration
         $table->string('apellido_paterno');
         $table->string('apellido_materno');
         $table->string('email');
+        $table->string('password');
         $table->unsignedInteger('puesto_id');
         $table->foreign('puesto_id')->references('id_puesto')->on('puesto')->onDelete('cascade');
         $table->unsignedInteger('departamento_id');

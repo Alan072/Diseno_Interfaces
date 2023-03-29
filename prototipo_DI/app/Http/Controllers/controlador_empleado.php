@@ -43,6 +43,7 @@ class controlador_empleado extends Controller
             "departamento_id"=>$req->input('departamento'),
             "puesto_id"=>$req->input('puesto'),
             "email"=>$req->input('email'),
+            "password"=>$req->input('password'),
             "created_at"=>Carbon::now(),
             "updated_at"=>Carbon::now(),
         ]);
@@ -93,6 +94,7 @@ class controlador_empleado extends Controller
         "departamento_id"=>$req->input('departamento'),
         "puesto_id"=>$req->input('puesto'),
         "email"=>$req->input('email'),
+        "password"=>$req->input('password'),
         "updated_at"=>Carbon::now(),
     ]);
     return redirect('/tb_usuarios')->with('mensaje','Tu recuerdo se ha actualizado');
