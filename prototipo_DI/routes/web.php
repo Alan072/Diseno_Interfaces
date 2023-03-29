@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
+Route::get('/',[Controlador_Paginas::class,'flog']) ->name('Jlog');
+Route::get('/jefe_ticket',[Controlador_Paginas::class,'finicio']) ->name('Jticket');
 #Esta es la ruta en donde se mostrara la tabla de la vista usuarios
 Route::get('/tb_usuarios',[controlador_empleado::class, 'index'])->name('usuarioindex');
 Route::delete('/tb_usuarios/{id_empleado}',[controlador_empleado::class, 'destroy'])->name('usuariodestroy');
