@@ -69,6 +69,14 @@ class Controlador_Paginas extends Controller
         return view('perfil');
     }
 
+    function fprofileaux(){
+        return view('perfilaux');
+    }
+
+    function fprofileuser(){
+        return view('perfiluser');
+    }
+
     //Vistas auxiliar
     function fauxt(){
         return view('ticket_auxiliar');

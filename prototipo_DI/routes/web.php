@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Controlador_Paginas;
 use App\Http\Controllers\controlador_empleado;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\controlador_departamento;
 
 use Illuminate\Support\Facades\Route;
@@ -60,6 +61,8 @@ Route::get('/reportesdepa',[Controlador_Paginas::class,'freportedepa']) ->name('
 
 //Vista del perfil
 Route::get('/perfil',[Controlador_Paginas::class,'fprofile']) ->name('Jprofile');
+Route::get('/perfilaux',[Controlador_Paginas::class,'fprofileaux']) ->name('Jprofileaux');
+Route::get('/perfiluser',[Controlador_Paginas::class,'fprofileuser']) ->name('Jprofileuser');
 
 //Vistas de auxiliar
 Route::get('/ticket_auxiliar',[Controlador_Paginas::class,'fauxt']) ->name('Jauxt');
@@ -68,3 +71,6 @@ Route::get('/busqueda_auxiliar',[Controlador_Paginas::class,'fauxbus']) ->name('
 //Vistas de cliente
 Route::get('/clientticket',[Controlador_Paginas::class,'fclientticket']) ->name('Jclientticket');
 Route::get('/tabcliente',[Controlador_Paginas::class,'ftabcliente']) ->name('Jtabcliente');
+
+Route::get('/jefe_ticket', [LoginController::class, 'login']);
+
