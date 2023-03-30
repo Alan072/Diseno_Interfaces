@@ -66,7 +66,7 @@
       }
 
       body{
-          background-image: url("disenofondo.png");
+          background-image: url("sinfondo.png");
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-size: cover;
