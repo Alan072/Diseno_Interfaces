@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 
 class controlador_empleado extends Controller
 {
@@ -33,9 +34,11 @@ class controlador_empleado extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $req)
-    {
-        //
-        //
+    {   
+        $image = $req->file('imagen');
+        $filename = time() . '_' . $image->getClientOriginalName();
+        $image->storeAs('public/images', $filename);
+    
         DB::table('empleado')->insert([
             "nombre"=>$req->input('nombre'),
             "apellido_paterno"=>$req->input('apellido_paterno'),
@@ -44,12 +47,14 @@ class controlador_empleado extends Controller
             "puesto_id"=>$req->input('puesto'),
             "email"=>$req->input('email'),
             "password"=>$req->input('password'),
+            'foto' => $filename,
             "created_at"=>Carbon::now(),
             "updated_at"=>Carbon::now(),
         ]);
+    
         return redirect('/jefe_ticket')->with('mensaje','Tu recuerdo se ha guardado en la BD');
     }
-
+    
     /**
      * Display the specified resource.
      */
@@ -109,4 +114,6 @@ class controlador_empleado extends Controller
         DB::table('empleado')->where('id_empleado',$id_empleado)->delete();
         return redirect('/tb_usuarios')->with('mensaje',"Recuerdo borrado");
     }
+
+    
 }

@@ -5,12 +5,29 @@
     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Perfil</span>
 </center>
 <div class="w-full max-w-xl p-4 bg-white  mx-auto">
+    
+        <form action="{{ route('') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            {{ csrf_field() }}
+            <div class="grid grid-cols-1 mt-5 mx-7">
+                <img id="imagenSeleccionada" style="max-height: 300px;">           
+            </div>
+
+            <div class="grid grid-cols-1 mt-5 mx-7">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">Subir Imagen</label>
+                <div class='flex items-center justify-center w-full'>
+                    <label class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-blue-300 group'>
+                        <div class='flex flex-col items-center justify-center pt-7'>
+                        <svg class="w-10 h-10 text-blue-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <p class='text-sm text-gray-400 group-hover:text-blue-600 pt-1 tracking-wider'>Seleccione la imagen</p>
+                        </div>
+                    <input name="imagen" id="imagen" required type='file' class="hidden" />
+                    </label>
+                </div>
+        </div> 
+        </form>
+         
     <form action="#">
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Añadir imagen</label>
-        <div class="flex items-center">
-            <img class="mr-4 rounded-full w-20 h-20" src="user.png" alt="Imagen">
-            <input class="block w-96 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
-        </div>        
         <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
                 <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>

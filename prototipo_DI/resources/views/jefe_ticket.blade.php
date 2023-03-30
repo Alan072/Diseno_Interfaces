@@ -3,9 +3,26 @@
 @include('modalEjem')
 
 <div class="bg-white rounded-lg shadow p-6">
-    <form method="post" action="{{ route('insertar.create') }}">
+    <form method="post" action="{{ route('insertar.create') }}" enctype="multipart/form-data">
         @csrf
+        
         <div class="grid gap-6 mb-6 md:grid-cols-2">
+          <div class="grid grid-cols-1 mt-5 mx-7">
+              <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">Subir Imagen</label>
+              <div class='flex items-center justify-center w-full'>
+                  <label class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-blue-300 group'>
+                      <div class='flex flex-col items-center justify-center pt-7'>
+                          <svg class="w-10 h-10 text-blue-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                          </svg>
+                          <p class='text-sm text-gray-400 group-hover:text-blue-600 pt-1 tracking-wider'>Seleccione la imagen</p>
+                      </div>
+                      <input name="imagen" id="imagen" required type='file' class="hidden" />
+                  </label>
+              </div>
+          </div>
+      </div>
+      
           <div>
             <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
             <input type="text" id="nombre" name="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Alan" required>
@@ -25,7 +42,7 @@
               <option value="" disabled selected>Selecciona un departamento</option>
               <?php
                 // Realizar la conexión a la base de datos
-                $conexion = mysqli_connect("localhost:3306", "root", "", "prototipo_di");
+                $conexion = mysqli_connect("localhost:3307", "root", "", "prototipo_di");
           
                 // Verificar la conexión
                 if (!$conexion) {
@@ -59,7 +76,7 @@
               <option value="" disabled selected>Selecciona un puesto</option>
               <?php
                 // Realizar la conexión a la base de datos
-                $conexion = mysqli_connect("localhost:3306", "root", "", "prototipo_di");
+                $conexion = mysqli_connect("localhost:3307", "root", "", "prototipo_di");
           
                 // Verificar la conexión
                 if (!$conexion) {
@@ -103,6 +120,7 @@
               
               </div>
             </div>
+              
           </div>
           <script>
             function togglePasswordVisibility() {

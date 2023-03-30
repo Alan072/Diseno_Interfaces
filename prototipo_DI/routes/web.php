@@ -28,6 +28,7 @@ Route::get('/tb_usuarios/{id_empleado}', [controlador_empleado::class, 'show'])-
 Route::put('/tb_usuarios/{id_empleado}',[controlador_empleado::class,'update'])->name('usuarioupdate');
 Route::get('/tb_usuarios/{id_empleado}/edit',[controlador_empleado::class,'edit'])->name('usuarioedit');
 Route::post('/insertar/create',[controlador_empleado::class,'store'])->name('insertar.create');
+Route::post('upload-image', 'controlador_empleado@upload')->name('image.upload');
 
 
 #Esta es la ruta en donde se mostrara la tabla de la vista reportes
