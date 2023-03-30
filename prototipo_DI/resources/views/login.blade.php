@@ -66,7 +66,7 @@
       }
 
       body{
-          background-image: url("upq.png");
+          background-image: url("disenofondo.png");
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-size: cover;
@@ -76,7 +76,9 @@
   <body class="text-center">
     
 <main class="form-signin w-100 m-auto">
-  <br>
+  <br><br><br><br>
+
+  
   <center>
     <!--Aqui comienza la card-->
     <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
@@ -90,7 +92,7 @@
       <form action="{{ url('/jefe_ticket') }}" method="GET">
         <div class="form-floating">
           <label for="floatingInput">No. Empleado</label><br>
-          <input type="number" placeholder="Ingresar No. Empleado" name="Matricula" required >
+          <input type="number" placeholder="No. Empleado" name="Matricula" required >
           
         </div>
         <div class="form-floating">

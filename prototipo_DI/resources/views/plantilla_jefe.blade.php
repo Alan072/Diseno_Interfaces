@@ -41,6 +41,9 @@
               <li>
                   <a href="/jefe_departamento" class="text-gray-900 dark:text-white hover:underline">Departamentos</a>
               </li>
+              <li>
+                <a href="/reportesdepa" class="text-gray-900 dark:text-white hover:underline">Reportes</a>
+            </li>
           </ul>
       </div>
   </div>
