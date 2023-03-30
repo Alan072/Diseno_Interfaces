@@ -1,26 +1,34 @@
 <?php
 
 namespace App\Http\Controllers;
+use DB;
 
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+    
+
     public function login(Request $request)
     {
         $matricula = $request->input('Matricula');
         $password = $request->input('Password');
+        $empleado = DB::table('empleado')->where('id_empleado', $matricula)->first();
         
-        if ($matricula == '123' && $password == 'admin') {
-            return view('jefe_ticket');
-        } elseif ($matricula == '456' && $password == 'aux') {
-            return view('ticket_auxiliar');
-        } elseif ($matricula == '789' && $password == 'user') {
-            return view('clientticket');
-        } else {
-            return redirect()->back()->withErrors(['Matricula' => 'Las credenciales ingresadas son incorrectas']);
+        if ($empleado && $password == $empleado->password) {
+            if ($empleado->puesto_id == 1) {
+                return view('jefe_ticket');
+            } elseif ($empleado->puesto_id == 2) {
+                return view('ticket_auxiliar');
+            } elseif ($empleado->puesto_id == 3) {
+                return view('clientticket');
+            }
         }
-    }
+    
+    return redirect()->back()->withErrors(['Matricula' => 'Las credenciales ingresadas son incorrectas']);
+}
+
+
     
     
 }
