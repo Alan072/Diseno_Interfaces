@@ -33,7 +33,7 @@
       <div class="flex items-center">
           <ul class="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
               <li>
-                  <a href="/jefe_ticket?Matricula=123&Password=admin" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Usuarios</a>
+                  <a href="/jefe_ticket" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Usuarios</a>
               </li>
               <li>
                   <a href="/reporte_ticket" class="text-gray-900 dark:text-white hover:underline">Tickets</a>

@@ -3,6 +3,8 @@ use App\Http\Controllers\Controlador_Paginas;
 use App\Http\Controllers\controlador_empleado;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\controlador_departamento;
+use App\Http\Controllers\ticketcontrolador;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +57,9 @@ Route::delete('/tb_departamento/{id_departamento}',[controlador_departamento::cl
 Route::get('/reporte_ticket',[Controlador_Paginas::class,'frepoticket']) ->name('rticket');
 Route::get('/vista_ticket',[Controlador_Paginas::class,'fvistaticket']) ->name('vticket');
 
+
+
+
 //Rutas de los reportes
 Route::get('/departamentos',[Controlador_Paginas::class,'fdepartamento']) ->name('ddepartamento');
 Route::get('/vistadepa',[Controlador_Paginas::class,'fvistadepa']) ->name('vdepa');
@@ -72,6 +77,13 @@ Route::get('/busqueda_auxiliar',[Controlador_Paginas::class,'fauxbus']) ->name('
 //Vistas de cliente
 Route::get('/clientticket',[Controlador_Paginas::class,'fclientticket']) ->name('Jclientticket');
 Route::get('/tabcliente',[Controlador_Paginas::class,'ftabcliente']) ->name('Jtabcliente');
+Route::post('/clientticket/create',[ticketcontrolador::class,'store']) ->name('insertar_ticket');
+Route::get('/tabcliente',[ticketcontrolador::class,'index']) ->name('ticket_index');
 
-Route::get('/jefe_ticket', [LoginController::class, 'login']);
+
+
+
+
+
+Route::post('/jefe_ticket', [LoginController::class, 'login']);
 

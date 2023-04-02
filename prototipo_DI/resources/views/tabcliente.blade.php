@@ -15,10 +15,7 @@
                     Departamento
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Fecha
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Clasificación
+                    Fecha y Hora
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Detalles
@@ -32,30 +29,28 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($ticket as $item)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    13343w
+                    {{$item->id_ticket}} 
+
                 </th>
                 <td class="px-6 py-4">
-                    Alejandro Martínez
+                    {{$item->nombre_completo}} 
                 </td>
                 <td class="px-6 py-4">
-                    Logistica
+                    {{$item->departamento}} 
+
                 </td>
                 <td class="px-6 py-4">
-                    29/03/2023
+                    {{$item->created_at}} 
+                </td>
+                
+                <td class="px-6 py-4">
+                    {{$item->detalles}} 
                 </td>
                 <td class="px-6 py-4">
-                    *************
-                </td>
-                <td class="px-6 py-4">
-                    *********************<br>
-                    *********************<br>
-                    *********************<br>
-                    *********************<br>
-                </td>
-                <td class="px-6 py-4">
-                    En proceso
+                    {{$item->estatus}} 
                 </td>
                 <td class="flex items-center">
                     <script>
@@ -69,6 +64,7 @@
                         </svg>
                     </button>
             </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
