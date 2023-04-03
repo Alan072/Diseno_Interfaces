@@ -65,8 +65,6 @@ return new class extends Migration
         $table->string('comentarios');
         $table->unsignedInteger('ticket_id');
         $table->foreign('ticket_id')->references('id_ticket')->on('tickets')->onDelete('cascade');
-        $table->unsignedInteger('departamento_id');
-        $table->foreign('departamento_id')->references('id_departamento')->on('departamento')->onDelete('cascade');
         $table->unsignedInteger('empleado_id');
         $table->foreign('empleado_id')->references('id_empleado')->on('empleado')->onDelete('cascade');
         $table->timestamps();

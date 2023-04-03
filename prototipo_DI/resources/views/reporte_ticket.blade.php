@@ -1,7 +1,9 @@
 @extends ('plantilla_jefe')
 @section ('contenido')
 @include('modalEjem')
+@include('modalEjem2')
 @include('draw')
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"  rel="stylesheet" />
 
 <style>
     .container {
@@ -46,7 +48,7 @@
                         DESCRIPCION
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        MAQUINA
+                        EMPLEADO
                     </th>
                     <th scope="col" class="px-6 py-3">
                         DEPARTAMENTO
@@ -60,25 +62,27 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($tarea as $item)
+
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        1
-                        
+                        {{$item->id_ticket}} 
+
                     </th>
                     <td class="px-6 py-4">
-                        ***************<br>
-                        ***************<br>
-                        ***************<br>
-                        ***************<br>
+                        {{$item->detalles}} <br>
+                        {{$item->comentarios}} 
                     </td>
                     <td class="px-6 py-4">
-                        12
+                        {{$item->nombre_completo}} 
                     </td>
                     <td class="px-6 py-4">
-                        Compras
+                        {{$item->departamento}} 
+
                     </td>
                     <td>
-                        Pendiente
+                        {{$item->estatus}} 
+
                     </td>
                     <td class="flex items-center">
                         <!--Esta es la linea del boton del documento-->
@@ -95,6 +99,79 @@
                                 <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
                               </svg>
                         </button>
+                        <script>
+                            $(document).ready(function() {
+  // Agregar evento de clic en el botón "asignar-ticket"
+  $(".asignar-ticket").click(function() {
+    // Obtener valores de la fila de la tabla
+    var id_ticket = $(this).closest("tr").find("th:eq(0)").text();
+    var detalles = $(this).closest("tr").find("td:eq(0)").text();
+    var nombre_completo = $(this).closest("tr").find("td:eq(1)").text();
+    var departamento = $(this).closest("tr").find("td:eq(2)").text();
+    var estatus = $(this).closest("tr").find("td:eq(3)").text();
+
+    // Almacenar valores en variables
+    var ticket_id = id_ticket;
+    var departamento_id = 1; // Aquí debes obtener el ID del departamento seleccionado por el usuario
+    var empleado_id = 1; // Aquí debes obtener el ID del empleado que está asignando la tarea
+
+    // Llenar campo oculto con el ID del ticket
+    $("#ticket_id").val(ticket_id);
+
+    // Mostrar el modal
+    $("#authentication-modal").addClass("active");
+  });
+
+  // Agregar evento de clic en el botón "Guardar" del modal
+  $("#guardar-tarea-btn").click(function() {
+    // Obtener valores del formulario
+    var id_tarea = $("#id_tarea").val();
+    var comentarios = $("#comentarios").val();
+    var ticket_id = $("#ticket_id").val();
+    var departamento_id = $("#departamento_id").val();
+    var empleado_id = $("#empleado_id").val();
+
+    // Validar campos (ejemplo)
+    if (!id_tarea || !comentarios) {
+      alert("Por favor completa todos los campos.");
+      return;
+    }
+
+    // Enviar datos al servidor con AJAX
+    $.ajax({
+      url: "insertar_tarea.php",
+      type: "POST",
+      data: {
+        id_tarea: id_tarea,
+        comentarios: comentarios,
+        ticket_id: ticket_id,
+        departamento_id: departamento_id,
+        empleado_id: empleado_id
+      },
+      success: function(response) {
+        // Cerrar el modal y actualizar la tabla de tareas
+        $("#authentication-modal").removeClass("active");
+        location.reload(); // Recargar la página para ver la tarea recién creada en la tabla
+      },
+      error: function(xhr, status, error) {
+        // Mostrar mensaje de error
+        alert("Error al guardar la tarea: " + error);
+      }
+    });
+  });
+});
+
+                            </script>
+                            
+                        
+                        
+                        {{-- <button data-tooltip-target="tooltip-assign" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-up" viewBox="0 0 16 16">
+                                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.354-5.854 1.5 1.5a.5.5 0 0 1-.708.708L13 11.707V14.5a.5.5 0 0 1-1 0v-2.793l-.646.647a.5.5 0 0 1-.708-.708l1.5-1.5a.5.5 0 0 1 .708 0ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                                <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+                              </svg>
+                        </button>
+                    --}}
                         <!--Esta es la linea del boton de la x-->
                         <!--
                         Boton para eliminar ticket
@@ -108,7 +185,8 @@
                           </button>
                     </td>
                 </tr>
-                
+                @endforeach
+
             </tbody>
         </table>
         <center>

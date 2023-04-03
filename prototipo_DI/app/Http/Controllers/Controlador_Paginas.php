@@ -36,9 +36,7 @@ class Controlador_Paginas extends Controller
         return view('jefe_departamento_editar');
     }
 
-    function frepoticket(){
-        return view('reporte_ticket');
-    }
+    
 
     function fvistaticket(){
         return view('vista_ticket');

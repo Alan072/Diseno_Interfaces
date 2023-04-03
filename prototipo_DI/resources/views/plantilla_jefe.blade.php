@@ -36,7 +36,7 @@
                   <a href="/jefe_ticket" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Usuarios</a>
               </li>
               <li>
-                  <a href="/reporte_ticket" class="text-gray-900 dark:text-white hover:underline">Tickets</a>
+                  <a href="/asignar_ticket" class="text-gray-900 dark:text-white hover:underline">Tickets</a>
               </li>
               <li>
                   <a href="/jefe_departamento" class="text-gray-900 dark:text-white hover:underline">Departamentos</a>

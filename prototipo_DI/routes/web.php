@@ -4,6 +4,7 @@ use App\Http\Controllers\controlador_empleado;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\controlador_departamento;
 use App\Http\Controllers\ticketcontrolador;
+use App\Http\Controllers\controlador_tareas;
 
 
 use Illuminate\Support\Facades\Route;
@@ -54,8 +55,9 @@ Route::delete('/tb_departamento/{id_departamento}',[controlador_departamento::cl
 
 
 //Rutas de las vistas de ticket
-Route::get('/reporte_ticket',[Controlador_Paginas::class,'frepoticket']) ->name('rticket');
 Route::get('/vista_ticket',[Controlador_Paginas::class,'fvistaticket']) ->name('vticket');
+Route::get('/asignar_ticket', [controlador_tareas::class, 'index'])->name('asignar_ticket');
+Route::post('/asignar_ticket/create',[controlador_tareas::class,'store']) ->name('insertar_tarea');
 
 
 

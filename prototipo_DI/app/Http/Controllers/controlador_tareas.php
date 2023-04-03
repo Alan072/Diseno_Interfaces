@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 use DB;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
-class ticketcontrolador extends Controller
+class controlador_tareas extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
-        $ticket = DB::table('tickets')
+        $tarea = DB::table('tickets')
         ->join('empleado', 'tickets.empleado_id', '=', 'empleado.id_empleado')
         ->join('departamento', 'empleado.departamento_id', '=', 'departamento.id_departamento')
         ->join('estatus', 'tickets.estatus_id', '=', 'estatus.id_estatus')
         ->select('tickets.*','departamento.nombre as departamento','estatus.nombre_estatus as estatus',
          DB::raw("CONCAT(empleado.nombre, ' ', empleado.apellido_paterno, ' ', empleado.apellido_materno) AS nombre_completo"))        
-        ->get();        
-        return view('tabcliente',compact('ticket'));
+        ->get();  
+        return view('reporte_ticket', ['tarea' => $tarea]);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +30,6 @@ class ticketcontrolador extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -38,16 +37,15 @@ class ticketcontrolador extends Controller
      */
     public function store(Request $req)
     {
-        //
-        DB::table('tickets')->insert([
-            "detalles"=>$req->input('detalles'),
-            "comentarios"=>$req->input('comentarios'),
+        DB::table('tarea')->insert([
+            "ticket_id"=>$req->input('ticket_id'),
             "empleado_id"=>$req->input('empleado_id'),
             "departamento_id"=>$req->input('departamento_id'),
+            "comentarios"=>$req->input('comentarios'),
             "created_at"=>Carbon::now(),
             "updated_at"=>Carbon::now(),
         ]);
-        return redirect('/clientticket')->with('mensaje','Tu recuerdo se ha guardado en la BD');
+        return redirect('/asignar_ticket')->with('mensaje','Tu recuerdo se ha guardado en la BD');
     }
 
     /**
