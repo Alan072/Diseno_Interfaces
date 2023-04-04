@@ -5,6 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\controlador_departamento;
 use App\Http\Controllers\ticketcontrolador;
 use App\Http\Controllers\controlador_tareas;
+use App\Http\Controllers\controlador_aux;
+
 
 
 use Illuminate\Support\Facades\Route;
@@ -73,7 +75,8 @@ Route::get('/perfilaux',[Controlador_Paginas::class,'fprofileaux']) ->name('Jpro
 Route::get('/perfiluser',[Controlador_Paginas::class,'fprofileuser']) ->name('Jprofileuser');
 
 //Vistas de auxiliar
-Route::get('/ticket_auxiliar',[Controlador_Paginas::class,'fauxt']) ->name('Jauxt');
+Route::get('/ticket_auxiliar',[controlador_aux::class,'index']) ->name('tarea');
+
 Route::get('/busqueda_auxiliar',[Controlador_Paginas::class,'fauxbus']) ->name('auxbus');
 
 //Vistas de cliente

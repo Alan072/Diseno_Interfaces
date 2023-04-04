@@ -14,7 +14,6 @@
       box-sizing: border-box;
     }
 </style>
-
 <!--aqui comienza la tabla--> 
 <br>
 <div class="bg-white rounded-lg shadow p-6">
@@ -29,13 +28,13 @@
                         DESCRIPCION
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        MAQUINA
+                        SOLICITADO POR: 
                     </th>
                     <th scope="col" class="px-6 py-3">
                         DEPARTAMENTO
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        STATUS
+                        FECHA Y HORA:
                     </th>
                     <th scope="col" class="px-6 py-3">
                         OPCIONES
@@ -43,31 +42,30 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($tarea as $item)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        1
-                        
+                        {{$item->id_ticket}} 
                     </th>
                     <td class="px-6 py-4">
-                        ***************<br>
-                        ***************<br>
-                        ***************<br>
-                        ***************<br>
+                        Comentarios tarea: {{$item->comentario_tarea}} , {{$item->detalles_ticket}}<br>
+                        Comentarios por el jefe: {{$item->comentario_ticket}} 
+                        
                     </td>
                     <td class="px-6 py-4">
-                        12
+                        {{$item->nombre_empleado_ticket}} 
                     </td>
                     <td class="px-6 py-4">
-                        Compras
+                        {{$item->nombre_departamento}} 
                     </td>
                     <td>
-                        Pendiente
+                        {{$item->created_at}} 
                     </td>
                     <td class="flex items-center">
                         <button type="button" data-drawer-target="drawaux" data-drawer-show="drawaux" data-drawer-body-scrolling="false" aria-controls="drawaux" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" style="float: right;">Más acciones</button>
                     </td>
                 </tr>
-                
+                @endforeach
             </tbody>
         </table>
         <center>
