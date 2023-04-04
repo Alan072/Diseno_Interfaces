@@ -78,6 +78,7 @@ Route::get('/perfiluser',[Controlador_Paginas::class,'fprofileuser']) ->name('Jp
 Route::get('/ticket_auxiliar',[controlador_aux::class,'index']) ->name('tarea');
 
 Route::get('/busqueda_auxiliar',[Controlador_Paginas::class,'fauxbus']) ->name('auxbus');
+Route::get('/busqueda_auxiliar2',[controlador_aux::class,'index_2']) ->name('filtrar');
 
 //Vistas de cliente
 Route::get('/clientticket',[Controlador_Paginas::class,'fclientticket']) ->name('Jclientticket');
