@@ -38,6 +38,7 @@ Route::post('upload-image', 'controlador_empleado@upload')->name('image.upload')
 
 #Esta es la ruta en donde se mostrara la tabla de la vista reportes
 Route::get('/tb_reportes',[Controlador_Paginas::class,'ftbreport']) ->name('Jtbreport');
+Route::get('/tb_reportes/{id_ticket}',[ticketcontrolador::class, 'show'])->name('ticket_show');
 
 Route::get('/jefe_ticket_read',[Controlador_Paginas::class,'fread']) ->name('Jread');
 Route::get('/jefe_ticket_editar',[Controlador_Paginas::class,'feditar']) ->name('Jeditar');
@@ -67,7 +68,12 @@ Route::post('/asignar_ticket/create',[controlador_tareas::class,'store']) ->name
 //Rutas de los reportes
 Route::get('/departamentos',[Controlador_Paginas::class,'fdepartamento']) ->name('ddepartamento');
 Route::get('/vistadepa',[Controlador_Paginas::class,'fvistadepa']) ->name('vdepa');
-Route::get('/reportesdepa',[Controlador_Paginas::class,'freportedepa']) ->name('rdepartamento');
+Route::get('/reportesdepa',[ticketcontrolador::class,'index_2']) ->name('rdepartamento');
+
+Route::get('/generar_pdf/{id_ticket}', [ticketcontrolador::class, 'generarPDF'])->name('generar_pdf');
+
+
+
 
 //Vista del perfil
 Route::get('/perfil',[Controlador_Paginas::class,'fprofile']) ->name('Jprofile');
