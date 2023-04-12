@@ -59,17 +59,22 @@ class controlador_tareas extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id_ticket)
     {
         //
+         // Manejar el caso en que no se encuentra el ticket
+        
+        
+         
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $req, string $id_ticket)
     {
         //
+        
     }
 
     /**

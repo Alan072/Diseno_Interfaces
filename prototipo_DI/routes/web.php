@@ -79,12 +79,17 @@ Route::get('/ticket_auxiliar',[controlador_aux::class,'index']) ->name('tarea');
 
 Route::get('/busqueda_auxiliar',[Controlador_Paginas::class,'fauxbus']) ->name('auxbus');
 Route::get('/busqueda_auxiliar2',[controlador_aux::class,'index_2']) ->name('filtrar');
+Route::put('/ticket_auxiliar/{id_ticket}',[controlador_aux::class,'update'])->name('ticket_update');
+Route::get('/ticket_auxiliar/{id_ticket}/edit',[controlador_aux::class,'edit'])->name('ticket_edit');
+
+
 
 //Vistas de cliente
 Route::get('/clientticket',[Controlador_Paginas::class,'fclientticket']) ->name('Jclientticket');
 Route::get('/tabcliente',[Controlador_Paginas::class,'ftabcliente']) ->name('Jtabcliente');
 Route::post('/clientticket/create',[ticketcontrolador::class,'store']) ->name('insertar_ticket');
 Route::get('/tabcliente',[ticketcontrolador::class,'index']) ->name('ticket_index');
+Route::put('/tabcliente/{id_ticket}',[ticketcontrolador::class,'actualizar'])->name('actualizar_valor');
 
 
 

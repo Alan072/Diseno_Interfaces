@@ -51,6 +51,7 @@ return new class extends Migration
         $table->increments('id_ticket');
         $table->string('detalles');
         $table->string('comentarios');
+        $table->string('comentarios_aux');
         $table->unsignedInteger('estatus_id');
         $table->foreign('estatus_id')->references('id_estatus')->on('estatus')->onDelete('cascade');
         $table->unsignedInteger('empleado_id');
