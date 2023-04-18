@@ -13,6 +13,9 @@
                 <li>
                     <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Fecha</button>
                 </li>
+                <li>
+                    <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Departamento</button>
+                </li>
             </div>
             <div class="relative w-full">
                 <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Buscar tickets" required>
@@ -29,46 +32,66 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    ID
+                    No. Ticket
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    DESCRIPCION
+                    Autor
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    MAQUINA
+                    Departamento
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    DEPARTAMENTO
+                    Fecha
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    STATUS
+                    Clasificación
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Detalles
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Acciones
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    1
-                    
+                    13343w
                 </th>
                 <td class="px-6 py-4">
-                    ***************<br>
-                    ***************<br>
-                    ***************<br>
-                    ***************<br>
+                    Alejandro Martínez
                 </td>
                 <td class="px-6 py-4">
-                    12
+                    Logistica
                 </td>
                 <td class="px-6 py-4">
-                    Compras
+                    29/03/2023
                 </td>
-                <td>
-                    Pendiente
+                <td class="px-6 py-4">
+                    *************
+                </td>
+                <td class="px-6 py-4">
+                    *********************<br>
+                    *********************<br>
+                    *********************<br>
+                    *********************<br>
+                </td>
+                <td class="px-6 py-4">
+                    En proceso
+                </td>
+                <td >
+                  <div style="display: flex; justify-content: center;">
+                    <button type="button" data-drawer-target="drawer-disable-body-scrolling" data-drawer-show="drawer-disable-body-scrolling" data-drawer-body-scrolling="false" aria-controls="drawer-disable-body-scrolling" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Generar Reporte</button>
+                    
+                  </div>
                 </td>
             </tr>
-            
         </tbody>
     </table>
 </div>
+
 @stop
