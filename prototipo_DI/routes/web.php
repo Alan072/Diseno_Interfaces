@@ -38,6 +38,7 @@ Route::post('upload-image', 'controlador_empleado@upload')->name('image.upload')
 
 #Esta es la ruta en donde se mostrara la tabla de la vista reportes
 Route::get('/tb_reportes',[Controlador_Paginas::class,'ftbreport']) ->name('Jtbreport');
+Route::get('/tb_reportes/{id_ticket}',[ticketcontrolador::class, 'show'])->name('ticket_show');
 
 Route::get('/jefe_ticket_read',[Controlador_Paginas::class,'fread']) ->name('Jread');
 Route::get('/jefe_ticket_editar',[Controlador_Paginas::class,'feditar']) ->name('Jeditar');
@@ -67,7 +68,12 @@ Route::post('/asignar_ticket/create',[controlador_tareas::class,'store']) ->name
 //Rutas de los reportes
 Route::get('/departamentos',[Controlador_Paginas::class,'fdepartamento']) ->name('ddepartamento');
 Route::get('/vistadepa',[Controlador_Paginas::class,'fvistadepa']) ->name('vdepa');
-Route::get('/reportesdepa',[Controlador_Paginas::class,'freportedepa']) ->name('rdepartamento');
+Route::get('/reportesdepa',[ticketcontrolador::class,'index_2']) ->name('rdepartamento');
+
+Route::get('/generar_pdf/{id_ticket}', [ticketcontrolador::class, 'generarPDF'])->name('generar_pdf');
+
+
+
 
 //Vista del perfil
 Route::get('/perfil',[Controlador_Paginas::class,'fprofile']) ->name('Jprofile');
@@ -78,12 +84,18 @@ Route::get('/perfiluser',[Controlador_Paginas::class,'fprofileuser']) ->name('Jp
 Route::get('/ticket_auxiliar',[controlador_aux::class,'index']) ->name('tarea');
 
 Route::get('/busqueda_auxiliar',[Controlador_Paginas::class,'fauxbus']) ->name('auxbus');
+Route::get('/busqueda_auxiliar2',[controlador_aux::class,'index_2']) ->name('filtrar');
+Route::put('/ticket_auxiliar/{id_ticket}',[controlador_aux::class,'update'])->name('ticket_update');
+Route::get('/ticket_auxiliar/{id_ticket}/edit',[controlador_aux::class,'edit'])->name('ticket_edit');
+
+
 
 //Vistas de cliente
 Route::get('/clientticket',[Controlador_Paginas::class,'fclientticket']) ->name('Jclientticket');
 Route::get('/tabcliente',[Controlador_Paginas::class,'ftabcliente']) ->name('Jtabcliente');
 Route::post('/clientticket/create',[ticketcontrolador::class,'store']) ->name('insertar_ticket');
 Route::get('/tabcliente',[ticketcontrolador::class,'index']) ->name('ticket_index');
+Route::put('/tabcliente/{id_ticket}',[ticketcontrolador::class,'actualizar'])->name('actualizar_valor');
 
 
 

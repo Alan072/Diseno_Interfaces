@@ -59,7 +59,7 @@
                     Fecha
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Clasificación
+                    Comentarios
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Detalles
@@ -73,38 +73,44 @@
             </tr>
         </thead>
         <tbody>
+
+            @foreach ($ticket as $item)
+                
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    13343w
+                    {{$item->id_ticket}}
                 </th>
                 <td class="px-6 py-4">
-                    Alejandro Martínez
+                    {{$item->nombre_completo}}
                 </td>
                 <td class="px-6 py-4">
-                    Logistica
+                    {{$item->departamento}}
+
                 </td>
                 <td class="px-6 py-4">
-                    29/03/2023
+                    {{$item->created_at}}
+
                 </td>
                 <td class="px-6 py-4">
-                    *************
+                    {{$item->comentarios}}
                 </td>
                 <td class="px-6 py-4">
-                    *********************<br>
-                    *********************<br>
-                    *********************<br>
-                    *********************<br>
+                    {{$item->detalles}}
+
                 </td>
                 <td class="px-6 py-4">
-                    En proceso
+                    {{$item->estatus}}
                 </td>
+
                 <td >
-                  <div style="display: flex; justify-content: center;">
-                    <button type="button" data-drawer-target="drawer-disable-body-scrolling" data-drawer-show="drawer-disable-body-scrolling" data-drawer-body-scrolling="false" aria-controls="drawer-disable-body-scrolling" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Generar Reporte</button>
-                    
-                  </div>
+                    <div style="display: flex; justify-content: center;">
+                        <a href="{{ route('generar_pdf', ['id_ticket' => $item->id_ticket]) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Generar PDF</a>
+                    </div>
                 </td>
+                
             </tr>
+            @endforeach
+
         </tbody>
     </table>
 </div>

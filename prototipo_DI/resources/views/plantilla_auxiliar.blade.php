@@ -35,7 +35,7 @@
                   <a href="/ticket_auxiliar" class="text-gray-900 dark:text-white hover:underline">Tickets</a>
               </li>
               <li>
-                  <a href="/busqueda_auxiliar" class="text-gray-900 dark:text-white hover:underline">Busqueda</a>
+                  <a href="/busqueda_auxiliar2" class="text-gray-900 dark:text-white hover:underline">Busqueda</a>
               </li>
           </ul>
       </div>

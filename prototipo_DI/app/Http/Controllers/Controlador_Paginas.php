@@ -8,6 +8,7 @@ class Controlador_Paginas extends Controller
 {
     //
 
+
     function flog(){
         return view('login');
     }
